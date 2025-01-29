@@ -4,7 +4,7 @@ import './App.css';
 // import Kaczka from './ui/Text/Text';
 // import { Text } from './ui/Text/Text';
 // import { Text } from './ui/Text';
-import { Text } from './ui';
+import { Button, Text } from './ui';
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -18,6 +18,7 @@ function App() {
       <div>
         {/* <Text text="Hello world" /> */}
         <Text>Hello world</Text>
+        <Button />
 
         {/* <h2>Envs</h2>
         <p>ENV_TARGET_ENV: {import.meta.env.ENV_TARGET_ENV}</p>
