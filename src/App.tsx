@@ -2,7 +2,9 @@
 import './App.css';
 
 // import Kaczka from './ui/Text/Text';
-import { Text } from './ui/Text/Text';
+// import { Text } from './ui/Text/Text';
+// import { Text } from './ui/Text';
+import { Text } from './ui';
 
 function App() {
   // const [count, setCount] = useState(0);
