@@ -9,7 +9,10 @@ export const Generator = () => {
   const handleClick = useCallback(() => {
     // id = uuidv4();
     // console.log({ id });
+    //
     setId(uuidv4());
+    // setId5(5);
+    // setId3(5);
   }, []);
 
   return (
