@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, memo } from 'react';
 
 const palette = {
   turquoise: '#1abc9c',
@@ -23,18 +23,17 @@ type Props = ComponentProps<'button'> & {
   /* <Button label="One two" />  */
 }
 
-export const Button = ({
-  label,
-  bgColor = 'emerald',
-  color = 'wetAsphalt',
-  ...rest
-}: Props) => {
-  return (
-    <button
-      style={{ backgroundColor: palette[bgColor], color: palette[color] }}
-      {...rest}
-    >
-      {label}
-    </button>
-  );
-};
+export const Button = memo(
+  ({ label, bgColor = 'emerald', color = 'wetAsphalt', ...rest }: Props) => {
+    return (
+      <button
+        style={{ backgroundColor: palette[bgColor], color: palette[color] }}
+        {...rest}
+      >
+        {label}
+      </button>
+    );
+  },
+);
+
+Button.displayName = 'memo(Button)';

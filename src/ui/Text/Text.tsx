@@ -2,6 +2,8 @@
 //   return <div>{props.message}</div>;
 // }
 
+import { memo } from 'react';
+
 // interface Props {
 //   text: string; // React.ReactNode
 // }
@@ -17,6 +19,9 @@ interface Props {
   children: string; // React.ReactNode
 }
 
-export const Text = ({ children }: Props) => {
+export const Text = memo(({ children }: Props) => {
   return <div>{children}</div>; // <Text> Hello world </Text>
-};
+});
+
+// export MyFunc = memo(MyFunc)
+Text.displayName = 'memo(Text)';
