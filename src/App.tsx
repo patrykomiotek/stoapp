@@ -18,7 +18,7 @@ function App() {
       <div>
         {/* <Text text="Hello world" /> */}
         <Text>Hello world</Text>
-        <Button />
+        <Button label="Click me" bgColor="peterRiver" />
 
         {/* <h2>Envs</h2>
         <p>ENV_TARGET_ENV: {import.meta.env.ENV_TARGET_ENV}</p>
