@@ -18,5 +18,5 @@ interface Props {
 }
 
 export const Text = ({ children }: Props) => {
-  return <div>{children}</div>;
+  return <div>{children}</div>; // <Text> Hello world </Text>
 };
