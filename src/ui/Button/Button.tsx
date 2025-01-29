@@ -1,3 +1,5 @@
+import { ComponentProps } from 'react';
+
 const palette = {
   turquoise: '#1abc9c',
   emerald: '#2ecc71',
@@ -11,28 +13,26 @@ const palette = {
 
 type Color = keyof typeof palette;
 
-interface Props {
+type Props = ComponentProps<'button'> & {
   label: string;
   bgColor?: Color;
   color?: Color;
-  onClick?: () => void;
-}
+};
 
 {
   /* <Button label="One two" />  */
 }
 
 export const Button = ({
-  onClick,
   label,
   bgColor = 'emerald',
   color = 'wetAsphalt',
+  ...rest
 }: Props) => {
   return (
     <button
-      onClick={onClick}
-      className="btn"
       style={{ backgroundColor: palette[bgColor], color: palette[color] }}
+      {...rest}
     >
       {label}
     </button>
