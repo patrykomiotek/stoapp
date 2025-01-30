@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import { LoginFormState } from '@components/LoginFormState';
 import { LoginFormRefs } from '@components/LoginFormRefs';
 import { LoginFormRHF } from '@components/LoginFormRHF';
+import { Table } from '@components/Table/Table';
 
 // import Kaczka from './ui/Text/Text';
 // import { Text } from './ui/Text/Text';
@@ -41,7 +42,8 @@ function App() {
   return (
     <>
       <div>
-        <LoginFormRHF />
+        <Table />
+        {/* <LoginFormRHF /> */}
         {/* <LoginFormRefs /> */}
         {/* <LoginFormState /> */}
         {/* <Text text="Hello world" /> */}
