@@ -1,5 +1,12 @@
 import { Button } from '@ui';
-import { ChangeEventHandler, useCallback, useRef, useState } from 'react';
+import { io } from 'socket.io-client';
+import {
+  ChangeEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Td } from './Td';
 
 // [3, 2]
@@ -22,6 +29,8 @@ const initialData = [
   },
 ];
 
+const socket = io('http://localhost:3333', { transports: ['websocket'] });
+
 export const Table = () => {
   // const userRefs = useRef<string[]>([]); // current=[]
   const userRefs = useRef(new Set<string>()); // current=[]
@@ -29,9 +38,44 @@ export const Table = () => {
   const [ids, setIds] = useState<string[]>([]);
   const [painted, setPainter] = useState(true);
   const [data, setData] = useState(initialData);
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  const [exchangeData, setExchangeData] = useState([]);
+
   // const ids = state[0];
   // const setIds = state[1];
   // state[1](124)
+
+  useEffect(() => {
+    // data
+    // 1. update state
+    // 2. ref dla kazdej komórki (createRef), iteracja po danych
+    // 3. observable (rx.js)
+  }, []);
+
+  useEffect(() => {
+    function onConnect() {
+      setIsConnected(true);
+    }
+
+    function onDisconnect() {
+      setIsConnected(false);
+    }
+
+    function onExchangeEvent(value) {
+      console.log({ value });
+      setExchangeData((previous) => [...previous, value]);
+    }
+
+    socket.on('connect', onConnect);
+    socket.on('disconnect', onDisconnect);
+    socket.on('exchange-data', onExchangeEvent);
+
+    return () => {
+      socket.off('connect', onConnect);
+      socket.off('disconnect', onDisconnect);
+      socket.off('exchange-data', onExchangeEvent);
+    };
+  }, []);
 
   const handleClick = () => {
     // alert(JSON.stringify(ids));
