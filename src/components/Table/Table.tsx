@@ -20,19 +20,22 @@ const data = [
 ];
 
 export const Table = () => {
+  const usersIds: string[] = [];
   const [ids, setIds] = useState<string[]>([]);
   // const ids = state[0];
   // const setIds = state[1];
   // state[1](124)
 
   const handleClick = () => {
-    alert(JSON.stringify(ids));
+    alert(JSON.stringify(usersIds));
+    // alert(JSON.stringify(ids));
   };
 
   const handleCheck: ChangeEventHandler<HTMLInputElement> = (event) => {
     const isChecked = event.target.checked;
     if (isChecked) {
-      setIds([...ids, event.target.id]);
+      // setIds([...ids, event.target.id]);
+      usersIds.push(event.target.id);
     }
   };
 
