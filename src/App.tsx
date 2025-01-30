@@ -49,6 +49,20 @@ function App() {
           label="Click me"
           onConfirm={() => null}
         />
+        <MagicButton
+          ref={buttonRef}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          label="Click me2"
+          onConfirm={() => null}
+        />
+        <MagicButton
+          ref={buttonRef}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          label="Click me"
+          onConfirm={() => null}
+        />
 
         {/* <h2>Envs</h2>
         <p>ENV_TARGET_ENV: {import.meta.env.ENV_TARGET_ENV}</p>
