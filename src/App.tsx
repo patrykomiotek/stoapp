@@ -4,6 +4,7 @@ import './App.css';
 // import { Generator } from './components/Generator';
 import { useEffect, useRef } from 'react';
 import { LoginFormState } from '@components/LoginFormState';
+import { LoginFormRefs } from '@components/LoginFormRefs';
 
 // import Kaczka from './ui/Text/Text';
 // import { Text } from './ui/Text/Text';
@@ -39,7 +40,8 @@ function App() {
   return (
     <>
       <div>
-        <LoginFormState />
+        <LoginFormRefs />
+        {/* <LoginFormState /> */}
         {/* <Text text="Hello world" /> */}
         {/* <Text>Hello world</Text> */}
         {/* <Button label="Click me" bgColor="peterRiver" /> */}
