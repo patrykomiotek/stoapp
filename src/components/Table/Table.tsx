@@ -1,5 +1,6 @@
 import { Button } from '@ui';
 import { ChangeEventHandler, useRef, useState } from 'react';
+import { Td } from './Td';
 
 // [3, 2]
 
@@ -60,8 +61,8 @@ export const Table = () => {
     const newData = clonedData.map((elem) => {
       const randomId1 = getRandomArbitrary(0, 2);
       const randomId2 = getRandomArbitrary(0, 2);
-      console.log('randomId: ', randomId1);
-      elem.name = data[randomId1].name;
+      // console.log('randomId: ', randomId1);
+      // elem.name = data[randomId1].name;
       return {
         ...elem,
         // name: data[randomId1].name,
@@ -108,10 +109,9 @@ export const Table = () => {
                     onChange={handleCheck}
                   />
                 </td>
-                <td style={{ padding: 4 }}>{elem.id}</td>
-                <td style={{ padding: 4 }}>{elem.name}</td>
-
-                <td style={{ padding: 4 }}>{elem.email}</td>
+                <Td>{elem.id}</Td>
+                <Td>{elem.name}</Td>
+                <Td>{elem.email}</Td>
               </tr>
             );
           })}
