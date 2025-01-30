@@ -2,6 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Button, Text } from '../../ui';
 
+// App: onMouseOver
+// 18 - x
+// 19 - ok
 export const Generator = () => {
   const [id, setId] = useState<string>(uuidv4());
   // eslint-disable-next-line
