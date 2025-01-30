@@ -1,5 +1,5 @@
 import { Button } from '@ui';
-import { ChangeEventHandler, useRef, useState } from 'react';
+import { ChangeEventHandler, useCallback, useRef, useState } from 'react';
 import { Td } from './Td';
 
 // [3, 2]
@@ -23,7 +23,8 @@ const initialData = [
 ];
 
 export const Table = () => {
-  const userRefs = useRef<string[]>([]); // current=[]
+  // const userRefs = useRef<string[]>([]); // current=[]
+  const userRefs = useRef(new Set<string>()); // current=[]
   const usersIds: string[] = [];
   const [ids, setIds] = useState<string[]>([]);
   const [painted, setPainter] = useState(true);
@@ -35,7 +36,8 @@ export const Table = () => {
   const handleClick = () => {
     // alert(JSON.stringify(ids));
     // alert(JSON.stringify(usersIds));
-    alert(JSON.stringify(userRefs.current));
+    // alert(JSON.stringify(userRefs.current.values()));
+    console.log(userRefs.current.values());
   };
 
   const handleCheck: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -44,14 +46,17 @@ export const Table = () => {
       // setIds([...ids, event.target.id]);
       // ids.push(event.target.id); // Działa, ale NIE :)
       // usersIds.push(event.target.id);
-      userRefs.current.push(event.target.id);
+      // userRefs.current.push(event.target.id);
+      userRefs.current.add(event.target.id);
+    } else {
+      userRefs.current.delete(event.target.id);
     }
   };
 
   function getRandomArbitrary(min: number, max: number) {
     return Math.round(Math.random() * (max - min) + min);
   }
-  const handleRerender = () => {
+  const handleRerender = useCallback(() => {
     // const newData = [...data];
     // const randomId = getRandomArbitrary(0, 2);
     // data[randomId].name = data[randomId].name;
@@ -79,7 +84,7 @@ export const Table = () => {
 
     console.log('Rerender');
     setPainter((value) => !value);
-  };
+  }, []);
 
   // createRef()
 

@@ -11,3 +11,5 @@ export const Td = memo(({ children, ...rest }: Props) => {
     </td>
   );
 });
+
+Td.displayName = 'memo(Td)';
