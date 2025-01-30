@@ -22,7 +22,7 @@ export const Table = () => {
       <h1>Users</h1>
       {data.map((elem) => {
         return (
-          <div>
+          <div key={elem.id}>
             <p>
               {elem.id} | {elem.name} | {elem.email}
             </p>
