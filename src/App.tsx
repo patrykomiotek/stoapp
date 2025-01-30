@@ -3,6 +3,7 @@ import { MagicButton } from '@ui';
 import './App.css';
 // import { Generator } from './components/Generator';
 import { useEffect, useRef } from 'react';
+import { LoginFormState } from '@components/LoginFormState';
 
 // import Kaczka from './ui/Text/Text';
 // import { Text } from './ui/Text/Text';
@@ -38,11 +39,12 @@ function App() {
   return (
     <>
       <div>
+        <LoginFormState />
         {/* <Text text="Hello world" /> */}
         {/* <Text>Hello world</Text> */}
         {/* <Button label="Click me" bgColor="peterRiver" /> */}
         {/* <Generator /> */}
-        <MagicButton
+        {/* <MagicButton
           ref={buttonRef}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -62,7 +64,7 @@ function App() {
           onMouseLeave={handleMouseLeave}
           label="Click me"
           onConfirm={() => null}
-        />
+        /> */}
 
         {/* <h2>Envs</h2>
         <p>ENV_TARGET_ENV: {import.meta.env.ENV_TARGET_ENV}</p>
