@@ -1,5 +1,5 @@
 import { ChangeEvent, ChangeEventHandler, useState } from 'react';
-import { Button } from '../../ui';
+import { Button, Input } from '../../ui';
 
 interface State {
   email: string;
@@ -36,14 +36,16 @@ export const LoginFormState = () => {
         </p>
       </div>
       <form>
-        <input
+        <Input
+          label="E-mail"
           type="text"
           onChange={handleChange}
           name="email"
           className="border-2 border-amber-950"
         />
 
-        <input
+        <Input
+          label="Password"
           type="password"
           name="password"
           onChange={handleChange}
