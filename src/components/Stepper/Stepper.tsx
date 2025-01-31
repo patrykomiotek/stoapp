@@ -72,8 +72,13 @@ export const Stepper = () => {
         </div>
       </div>
       <div>
-        <Input label="" type="number" onKeyDown={handleKeyDown} />
-        <p className="text-red-700">Error</p>
+        <Input
+          data-testid="my-custom-input"
+          label=""
+          type="number"
+          onKeyDown={handleKeyDown}
+        />
+        {/* <p className="text-red-700">Error</p> */}
       </div>
     </div>
   );
