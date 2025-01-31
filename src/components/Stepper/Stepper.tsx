@@ -5,7 +5,7 @@ interface State {
   value: number;
 }
 
-enum ActionType {
+export enum ActionType {
   INCREMENT = 'action/increment', // 0
   DECREMENT = 'action/decrement', // 1
   SET = 'action/set', // 2
@@ -22,7 +22,7 @@ const initialState: State = {
 
 // class Mieso extends Error {}
 
-const reducer = (state: State, action: Action) => {
+export const reducer = (state: State, action: Action) => {
   if (action.type === ActionType.DECREMENT) {
     return {
       value: state.value - 1,
