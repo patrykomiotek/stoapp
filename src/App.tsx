@@ -55,6 +55,7 @@ function App() {
           <div>
             <Main>
               <AuthInfo />
+              <Table />
             </Main>
           </div>
         </div>

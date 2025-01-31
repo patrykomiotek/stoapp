@@ -63,7 +63,8 @@ export const Table = () => {
 
     function onExchangeEvent(value) {
       console.log({ value });
-      setExchangeData((previous) => [...previous, value]);
+      // setExchangeData((previous) => [...previous, value]);
+      setExchangeData(value);
     }
 
     socket.on('connect', onConnect);
@@ -142,12 +143,15 @@ export const Table = () => {
           <tr>
             <th></th>
             <th>ID</th>
-            <th>Name</th>
-            <th>E-mail</th>
+            <th>Symbol1</th>
+            <th>Symbol2</th>
+            <th>Symbol3</th>
+            <th>Symbol4</th>
+            <th>Symbol5</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((elem) => {
+          {exchangeData.map((elem) => {
             return (
               <tr key={elem.id}>
                 <td style={{ padding: 4 }}>
@@ -158,9 +162,12 @@ export const Table = () => {
                     onChange={handleCheck}
                   />
                 </td>
-                <Td>{elem.id}</Td>
-                <Td>{elem.name}</Td>
-                <Td>{elem.email}</Td>
+                <Td>{elem.symbol1}</Td>
+                <Td>{elem.symbol2}</Td>
+                <Td>{elem.symbol3}</Td>
+                <Td>{elem.symbol4}</Td>
+                <Td>{elem.symbol5}</Td>
+                {/* <Td>{elem.email}</Td> */}
               </tr>
             );
           })}

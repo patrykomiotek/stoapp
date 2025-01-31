@@ -11,19 +11,20 @@ const initialState: AuthState = {
 };
 
 // class AuthMobx {
-//   state = {
-//     isLoggedIn: false
-//   };
-
+// isLogged = false;
+//
+// constructor() {
+//   makeAutoObservable(this, {}, { autoBind: true})
+// }
 //   login() {
-//     this.state.isLoggedIn = true;
+//     this.isLoggedIn = true;
 //   }
 //   logOut() {
-//     this.state.isLoggedIn = false;
+//     this.isLoggedIn = false;
 //   }
 
 //   toggle() {
-//     this.state.isLoggedIn = !this.state.isLoggedIn;
+//     this.isLoggedIn = !this.state.isLoggedIn;
 //   }
 // }
 
