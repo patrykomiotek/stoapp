@@ -86,7 +86,7 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider>
-        {/* <ThemeSwitcher /> */}
+        <ThemeSwitcher />
         {/* <ViewPort /> */}
         <div>
           <div className="flex flex-row">
@@ -98,6 +98,13 @@ function App() {
                 <Main>
                   <AuthInfo />
                   {/* {renderTable()} */}
+                  <button
+                    onClick={() => {
+                      throw new Error('This is your first error!');
+                    }}
+                  >
+                    Break the world
+                  </button>
                   <ErrorBoundary
                     fallback={<p>Something went wrong. Please refresh</p>}
                   >
