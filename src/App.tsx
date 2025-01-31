@@ -45,7 +45,7 @@ function App() {
       <div>
         <Stepper />
         {/* <Table /> */}
-        {/* <LoginFormRHF /> */}
+        <LoginFormRHF />
         {/* <LoginFormRefs /> */}
         {/* <LoginFormState /> */}
         {/* <Text text="Hello world" /> */}

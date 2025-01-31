@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body.dark {
+  background-color: #213547;
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

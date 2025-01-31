@@ -34,7 +34,7 @@ export const Input = forwardRef(
         <input
           ref={ref}
           id={id}
-          className={`block w-full appearance-none rounded-lg border border-gray-200 bg-white px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing.2)-1px)] text-lg text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 ${className} ${errorClasses}`}
+          className={`block w-full appearance-none rounded-lg border dark:border-gray-200 bg-white px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing.2)-1px)] text-lg text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-blue-500 ${className} ${errorClasses}`}
           {...rest}
         />
         {error && (
