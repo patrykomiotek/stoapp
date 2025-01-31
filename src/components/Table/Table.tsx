@@ -135,8 +135,26 @@ export const Table = () => {
 
   // createRef()
 
+  const columns = 40;
+
+  const generateHeaders = () => {
+    const headers = [];
+    for (let i = 0; i < columns; i++) {
+      headers.push(<th>Symbol{i + 1}</th>);
+    }
+    return headers;
+  };
+
+  const generateCells = (elem) => {
+    const cells = [];
+    for (let i = 0; i < columns; i++) {
+      cells.push(<Td>{elem[`symbol${i + 1}`]}</Td>);
+    }
+    return cells;
+  };
+
   return (
-    <div>
+    <div className="mt-8">
       <h1>Users</h1>
       <Button label="Show ids" onClick={handleClick} />
       <Button label="Rerender" onClick={handleRerender} />
@@ -145,11 +163,7 @@ export const Table = () => {
           <tr>
             <th></th>
             <th>ID</th>
-            <th>Symbol1</th>
-            <th>Symbol2</th>
-            <th>Symbol3</th>
-            <th>Symbol4</th>
-            <th>Symbol5</th>
+            {generateHeaders()}
           </tr>
         </thead>
         <tbody>
@@ -164,6 +178,10 @@ export const Table = () => {
                     onChange={handleCheck}
                   />
                 </td>
+                <Td>{elem.id}</Td>
+
+                {generateCells(elem)}
+
                 <Td>{elem.symbol1}</Td>
                 <Td>{elem.symbol2}</Td>
                 <Td>{elem.symbol3}</Td>
