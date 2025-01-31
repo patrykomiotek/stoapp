@@ -1,17 +1,30 @@
-import { Component } from 'react';
+import { Component, ErrorInfo } from 'react';
 
-export class ErrorBoundary extends Component {
-  componentDidMount(): void {}
+interface State {
+  hasError: boolean;
+}
 
-  componentDidUpdate(): void {}
+interface Props {
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
+}
 
-  componentWillUnmount(): void {}
+export class ErrorBoundary extends Component<Props, State> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError(error: Error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {}
 
   render() {
-    return (
-      <div>
-        <p>Hello!</p>
-      </div>
-    );
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return this.props.fallback;
+    }
+
+    return this.props.children;
   }
 }

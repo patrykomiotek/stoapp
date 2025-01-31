@@ -16,6 +16,8 @@ import { store } from './store';
 import { ViewPort } from '@components/ViewPort';
 import { ThemeProvider } from '@components/Theme/ThemeContext';
 import { ThemeSwitcher } from '@components/Theme/ThemeSwitcher';
+import { Dumb } from '@components/Dumb/Dumb';
+import { ErrorBoundary } from '@components/ErrorBoundary/ErrorBoundary';
 
 // import Kaczka from './ui/Text/Text';
 // import { Text } from './ui/Text/Text';
@@ -92,10 +94,15 @@ function App() {
               <Sidebar />
             </div>
             <div>
-              <Main>
-                <AuthInfo />
-                {renderTable()}
-              </Main>
+              <ErrorBoundary fallback={<p>Main error</p>}>
+                <Main>
+                  <AuthInfo />
+                  {/* {renderTable()} */}
+                  <ErrorBoundary fallback={<p>Dumb error</p>}>
+                    <Dumb />
+                  </ErrorBoundary>
+                </Main>
+              </ErrorBoundary>
             </div>
           </div>
           {/* <Stepper /> */}
