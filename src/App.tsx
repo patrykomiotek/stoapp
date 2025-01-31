@@ -7,6 +7,7 @@ import { LoginFormState } from '@components/LoginFormState';
 import { LoginFormRefs } from '@components/LoginFormRefs';
 import { LoginFormRHF } from '@components/LoginFormRHF';
 import { Table } from '@components/Table/Table';
+import { Stepper } from '@components/Stepper';
 
 // import Kaczka from './ui/Text/Text';
 // import { Text } from './ui/Text/Text';
@@ -42,7 +43,8 @@ function App() {
   return (
     <>
       <div>
-        <Table />
+        <Stepper />
+        {/* <Table /> */}
         {/* <LoginFormRHF /> */}
         {/* <LoginFormRefs /> */}
         {/* <LoginFormState /> */}
