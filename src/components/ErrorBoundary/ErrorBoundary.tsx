@@ -1,3 +1,4 @@
+import { Button } from '@ui';
 import { Component, ErrorInfo } from 'react';
 
 interface State {
@@ -22,7 +23,17 @@ export class ErrorBoundary extends Component<Props, State> {
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
-      return this.props.fallback;
+      return (
+        <div>
+          {this.props.fallback}
+          <div>
+            <Button
+              label="Refresh"
+              onClick={() => this.setState({ hasError: false })}
+            />
+          </div>
+        </div>
+      );
     }
 
     return this.props.children;

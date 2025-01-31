@@ -98,7 +98,9 @@ function App() {
                 <Main>
                   <AuthInfo />
                   {/* {renderTable()} */}
-                  <ErrorBoundary fallback={<p>Dumb error</p>}>
+                  <ErrorBoundary
+                    fallback={<p>Something went wrong. Please refresh</p>}
+                  >
                     <Dumb />
                   </ErrorBoundary>
                 </Main>
