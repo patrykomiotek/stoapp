@@ -66,7 +66,8 @@ export const Table = () => {
     function onExchangeEvent(value) {
       console.log({ value });
       // setExchangeData((previous) => [...previous, value]);
-      setExchangeData(value);
+      setExchangeData(value); //
+      // setExchangeData(() => value); // based on previous value
     }
 
     socket.on('connect', onConnect);
@@ -182,11 +183,11 @@ export const Table = () => {
 
                 {generateCells(elem)}
 
-                <Td>{elem.symbol1}</Td>
+                {/* <Td>{elem.symbol1}</Td>
                 <Td>{elem.symbol2}</Td>
                 <Td>{elem.symbol3}</Td>
                 <Td>{elem.symbol4}</Td>
-                <Td>{elem.symbol5}</Td>
+                <Td>{elem.symbol5}</Td> */}
                 {/* <Td>{elem.email}</Td> */}
               </tr>
             );
