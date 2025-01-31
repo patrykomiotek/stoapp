@@ -2,7 +2,7 @@
 import { MagicButton } from '@ui';
 import './App.css';
 // import { Generator } from './components/Generator';
-import { useEffect, useRef } from 'react';
+import { Profiler, useEffect, useRef } from 'react';
 import { LoginFormState } from '@components/LoginFormState';
 import { LoginFormRefs } from '@components/LoginFormRefs';
 import { LoginFormRHF } from '@components/LoginFormRHF';
@@ -48,6 +48,39 @@ function App() {
     }
   };
 
+  function onRender(
+    id,
+    phase,
+    actualDuration,
+    baseDuration,
+    startTime,
+    commitTime,
+  ) {
+    // Aggregate or log render timings...
+    console.log({
+      id,
+      phase,
+      actualDuration,
+      baseDuration,
+      startTime,
+      commitTime,
+    });
+  }
+
+  const renderTable = () => {
+    const isDev = process.env.NODE_ENV;
+    if (isDev) {
+      return (
+        <Profiler id="tableComponent" onRender={onRender}>
+          <Table />
+        </Profiler>
+      );
+    }
+    return <Table />;
+  };
+
+  console.log(process.env.NODE_ENV);
+
   return (
     <Provider store={store}>
       <ThemeProvider>
@@ -61,7 +94,7 @@ function App() {
             <div>
               <Main>
                 <AuthInfo />
-                <Table />
+                {renderTable()}
               </Main>
             </div>
           </div>
