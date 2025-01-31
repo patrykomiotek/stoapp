@@ -16,7 +16,7 @@ import { memo } from 'react';
 // export default MyText;
 
 interface Props {
-  children: string; // React.ReactNode
+  children: string | number; // React.ReactNode
 }
 
 export const Text = memo(({ children }: Props) => {
