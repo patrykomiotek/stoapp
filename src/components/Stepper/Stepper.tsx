@@ -13,7 +13,7 @@ enum ActionType {
 
 interface Action {
   type: ActionType;
-  // payload?: number;
+  payload?: number;
 }
 
 const initialState: State = {
@@ -31,12 +31,11 @@ const reducer = (state: State, action: Action) => {
     return {
       value: state.value + 1,
     };
+  } else if (action.type === ActionType.SET && action.payload) {
+    return {
+      value: action.payload,
+    };
   }
-  // } else if (action.type === ActionType.SET) {
-  //   return {
-  //     value: action.payload,
-  //   };
-  // }
   return state;
   // throw new Error('Invalid action');
 };
@@ -46,7 +45,10 @@ export const Stepper = () => {
 
   const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.key === 'Enter') {
-      // dispatch
+      dispatch({
+        type: ActionType.SET,
+        payload: parseInt(event.currentTarget.value, 10),
+      });
     }
   };
 
@@ -70,7 +72,8 @@ export const Stepper = () => {
         </div>
       </div>
       <div>
-        <Input label="" onKeyDown={handleKeyDown} />
+        <Input label="" type="number" onKeyDown={handleKeyDown} />
+        <p className="text-red-700">Error</p>
       </div>
     </div>
   );
