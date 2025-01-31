@@ -32,6 +32,8 @@ const initialData = [
 const socket = io('http://localhost:3333', { transports: ['websocket'] });
 
 export const Table = () => {
+  // const { isConnected, checkIsConnected } = useTableLogic();
+
   // const userRefs = useRef<string[]>([]); // current=[]
   const userRefs = useRef(new Set<string>()); // current=[]
   const usersIds: string[] = [];

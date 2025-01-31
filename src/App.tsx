@@ -13,6 +13,9 @@ import { Main } from '@components/Main/Main';
 import { AuthInfo } from '@components/Main/AuthInfo';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import { ViewPort } from '@components/ViewPort';
+import { ThemeProvider } from '@components/Theme/ThemeContext';
+import { ThemeSwitcher } from '@components/Theme/ThemeSwitcher';
 
 // import Kaczka from './ui/Text/Text';
 // import { Text } from './ui/Text/Text';
@@ -47,28 +50,31 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div>
-        <div className="flex flex-row">
-          <div className="mr-4">
-            <Sidebar />
+      <ThemeProvider>
+        {/* <ThemeSwitcher /> */}
+        {/* <ViewPort /> */}
+        <div>
+          <div className="flex flex-row">
+            <div className="mr-4">
+              <Sidebar />
+            </div>
+            <div>
+              <Main>
+                <AuthInfo />
+                <Table />
+              </Main>
+            </div>
           </div>
-          <div>
-            <Main>
-              <AuthInfo />
-              <Table />
-            </Main>
-          </div>
-        </div>
-        {/* <Stepper /> */}
-        {/* <Table /> */}
-        {/* <LoginFormRHF /> */}
-        {/* <LoginFormRefs /> */}
-        {/* <LoginFormState /> */}
-        {/* <Text text="Hello world" /> */}
-        {/* <Text>Hello world</Text> */}
-        {/* <Button label="Click me" bgColor="peterRiver" /> */}
-        {/* <Generator /> */}
-        {/* <MagicButton
+          {/* <Stepper /> */}
+          {/* <Table /> */}
+          {/* <LoginFormRHF /> */}
+          {/* <LoginFormRefs /> */}
+          {/* <LoginFormState /> */}
+          {/* <Text text="Hello world" /> */}
+          {/* <Text>Hello world</Text> */}
+          {/* <Button label="Click me" bgColor="peterRiver" /> */}
+          {/* <Generator /> */}
+          {/* <MagicButton
           ref={buttonRef}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -90,10 +96,11 @@ function App() {
           onConfirm={() => null}
         /> */}
 
-        {/* <h2>Envs</h2>
+          {/* <h2>Envs</h2>
         <p>ENV_TARGET_ENV: {import.meta.env.ENV_TARGET_ENV}</p>
         <p>VITE_APP_VERSION: {import.meta.env.VITE_APP_VERSION}</p> */}
-      </div>
+        </div>
+      </ThemeProvider>
     </Provider>
   );
 }

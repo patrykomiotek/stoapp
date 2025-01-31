@@ -5,7 +5,7 @@ export const ViewPort = () => {
 
   return (
     <div>
-      <p>
+      <p className="dark:text-slate-200">
         X: {size.x}, Y: {size.y}
       </p>
     </div>
