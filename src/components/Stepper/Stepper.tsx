@@ -40,6 +40,8 @@ export const reducer = (state: State, action: Action) => {
   // throw new Error('Invalid action');
 };
 
+const increment = () => ({ type: ActionType.DECREMENT });
+
 export const Stepper = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -56,10 +58,7 @@ export const Stepper = () => {
     <div className="flex flex-col max-w-2xl mt-4">
       <div className="flex">
         <div className="w-1/3">
-          <Button
-            label="-"
-            onClick={() => dispatch({ type: ActionType.DECREMENT })}
-          />
+          <Button label="-" onClick={() => dispatch(increment())} />
         </div>
         <div className="w-1/3 flex justify-center">
           <Text>{state.value}</Text>

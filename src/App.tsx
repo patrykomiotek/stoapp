@@ -8,6 +8,11 @@ import { LoginFormRefs } from '@components/LoginFormRefs';
 import { LoginFormRHF } from '@components/LoginFormRHF';
 import { Table } from '@components/Table/Table';
 import { Stepper } from '@components/Stepper';
+import { Sidebar } from '@components/Main/Sidebar';
+import { Main } from '@components/Main/Main';
+import { AuthInfo } from '@components/Main/AuthInfo';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 // import Kaczka from './ui/Text/Text';
 // import { Text } from './ui/Text/Text';
@@ -41,9 +46,19 @@ function App() {
   };
 
   return (
-    <>
+    <Provider store={store}>
       <div>
-        <Stepper />
+        <div className="flex flex-row">
+          <div className="mr-4">
+            <Sidebar />
+          </div>
+          <div>
+            <Main>
+              <AuthInfo />
+            </Main>
+          </div>
+        </div>
+        {/* <Stepper /> */}
         {/* <Table /> */}
         {/* <LoginFormRHF /> */}
         {/* <LoginFormRefs /> */}
@@ -78,7 +93,7 @@ function App() {
         <p>ENV_TARGET_ENV: {import.meta.env.ENV_TARGET_ENV}</p>
         <p>VITE_APP_VERSION: {import.meta.env.VITE_APP_VERSION}</p> */}
       </div>
-    </>
+    </Provider>
   );
 }
 
